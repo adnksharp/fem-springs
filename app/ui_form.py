@@ -107,12 +107,14 @@ class Ui_Widget(object):
         self.SNA = QSpinBox(self.tab)
         self.SNA.setObjectName(u"SNA")
         self.SNA.setMinimum(1)
+        self.SNA.setMaximum(1)
 
         self.gridLayout.addWidget(self.SNA, 0, 1, 1, 1)
 
         self.SNB = QSpinBox(self.tab)
         self.SNB.setObjectName(u"SNB")
         self.SNB.setMinimum(1)
+        self.SNB.setMaximum(1)
 
         self.gridLayout.addWidget(self.SNB, 2, 1, 1, 1)
 
@@ -161,22 +163,24 @@ class Ui_Widget(object):
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.gridLayout_3 = QGridLayout()
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.SNA_3 = QSpinBox(self.tab_3)
-        self.SNA_3.setObjectName(u"SNA_3")
-        self.SNA_3.setMinimum(1)
+        self.force = QSpinBox(self.tab_3)
+        self.force.setObjectName(u"force")
+        self.force.setMinimum(0)
+        self.force.setMaximum(1000000000)
 
-        self.gridLayout_3.addWidget(self.SNA_3, 0, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.force, 0, 1, 1, 1)
 
         self.label_16 = QLabel(self.tab_3)
         self.label_16.setObjectName(u"label_16")
 
         self.gridLayout_3.addWidget(self.label_16, 0, 0, 1, 1)
 
-        self.SNB_3 = QSpinBox(self.tab_3)
-        self.SNB_3.setObjectName(u"SNB_3")
-        self.SNB_3.setMinimum(1)
+        self.FN = QSpinBox(self.tab_3)
+        self.FN.setObjectName(u"FN")
+        self.FN.setMinimum(1)
+        self.FN.setMaximum(1)
 
-        self.gridLayout_3.addWidget(self.SNB_3, 1, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.FN, 1, 1, 1, 1)
 
         self.label_18 = QLabel(self.tab_3)
         self.label_18.setObjectName(u"label_18")

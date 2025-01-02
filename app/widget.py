@@ -14,7 +14,14 @@ class Widget(QWidget):
         super().__init__(parent)
         self.ui = Ui_Widget()
         self.ui.setupUi(self)
-
+        self.ui.nodes.valueChanged.connect(self.nodes)
+ 
+    def nodes(self):
+        opts = self.ui.nodes.value()
+        if opts > 1:
+            self.ui.SNA.setMaximum(opts)
+            self.ui.SNB.setMaximum(opts)
+            self.ui.FN.setMaximum(opts)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
