@@ -33,13 +33,14 @@ El código [springs](springs.sce) permite obtener la matriz global $k$ así como
 
 1. El número de resortes del sistema.
 2. La cantidad de nodos que conforman el sistema.
-3. La fuerza aplicada al sistema.
-4. El nodo en el que se aplica la fuerza.
-5. Si los módulos elasticos son iguales para todo el sistema.
+3. La cantidad de fuerzas que interactuan con el sistema
+4. Cada una de las fuerzas aplicadas al sistema,
+5. y el nodo en el que se aplica.
+6. Si los módulos elasticos son iguales para todo el sistema.
 	- Al responder `no` el  script pedirá los módulos de cada resorte.
 	- De no ser así el sistema pedirá unicamente un solo valor de $k$.
-6. Los nodos a los que se conecta cada resorte.
-7. Las nodos que se encuentran empotrados.
+7. Los nodos a los que se conecta cada resorte.
+8. Las nodos que se encuentran empotrados.
 
 
 
