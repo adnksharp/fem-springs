@@ -16,17 +16,17 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout,
-    QLabel, QLineEdit, QSizePolicy, QSpinBox,
-    QTabWidget, QVBoxLayout, QWidget)
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QSpinBox, QTabWidget, QVBoxLayout, QWidget)
 
 class Ui_Widget(object):
     def setupUi(self, Widget):
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
-        Widget.resize(517, 236)
+        Widget.resize(517, 491)
         Widget.setStyleSheet(u"")
-        self.verticalLayout = QVBoxLayout(Widget)
-        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout_5 = QVBoxLayout(Widget)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label = QLabel(Widget)
@@ -34,15 +34,15 @@ class Ui_Widget(object):
 
         self.horizontalLayout.addWidget(self.label)
 
-        self.spinBox = QSpinBox(Widget)
-        self.spinBox.setObjectName(u"spinBox")
-        self.spinBox.setMinimum(1)
-        self.spinBox.setMaximum(255)
+        self.springs = QSpinBox(Widget)
+        self.springs.setObjectName(u"springs")
+        self.springs.setMinimum(1)
+        self.springs.setMaximum(255)
 
-        self.horizontalLayout.addWidget(self.spinBox)
+        self.horizontalLayout.addWidget(self.springs)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.verticalLayout_5.addLayout(self.horizontalLayout)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -51,15 +51,15 @@ class Ui_Widget(object):
 
         self.horizontalLayout_2.addWidget(self.label_2)
 
-        self.spinBox_2 = QSpinBox(Widget)
-        self.spinBox_2.setObjectName(u"spinBox_2")
-        self.spinBox_2.setMinimum(2)
-        self.spinBox_2.setMaximum(255)
+        self.nodes = QSpinBox(Widget)
+        self.nodes.setObjectName(u"nodes")
+        self.nodes.setMinimum(2)
+        self.nodes.setMaximum(255)
 
-        self.horizontalLayout_2.addWidget(self.spinBox_2)
+        self.horizontalLayout_2.addWidget(self.nodes)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.verticalLayout_5.addLayout(self.horizontalLayout_2)
 
         self.tabWidget = QTabWidget(Widget)
         self.tabWidget.setObjectName(u"tabWidget")
@@ -74,15 +74,15 @@ class Ui_Widget(object):
 
         self.gridLayout.addWidget(self.label_4, 0, 0, 1, 1)
 
-        self.checkBox = QCheckBox(self.tab)
-        self.checkBox.setObjectName(u"checkBox")
+        self.eqk = QCheckBox(self.tab)
+        self.eqk.setObjectName(u"eqk")
 
-        self.gridLayout.addWidget(self.checkBox, 1, 2, 1, 1)
+        self.gridLayout.addWidget(self.eqk, 1, 2, 1, 1)
 
-        self.lineEdit_3 = QLineEdit(self.tab)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.Sk = QLineEdit(self.tab)
+        self.Sk.setObjectName(u"Sk")
 
-        self.gridLayout.addWidget(self.lineEdit_3, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.Sk, 1, 1, 1, 1)
 
         self.label_5 = QLabel(self.tab)
         self.label_5.setObjectName(u"label_5")
@@ -94,27 +94,27 @@ class Ui_Widget(object):
 
         self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
 
-        self.checkBox_2 = QCheckBox(self.tab)
-        self.checkBox_2.setObjectName(u"checkBox_2")
+        self.BCA = QCheckBox(self.tab)
+        self.BCA.setObjectName(u"BCA")
 
-        self.gridLayout.addWidget(self.checkBox_2, 0, 2, 1, 1)
+        self.gridLayout.addWidget(self.BCA, 0, 2, 1, 1)
 
-        self.checkBox_3 = QCheckBox(self.tab)
-        self.checkBox_3.setObjectName(u"checkBox_3")
+        self.BCB = QCheckBox(self.tab)
+        self.BCB.setObjectName(u"BCB")
 
-        self.gridLayout.addWidget(self.checkBox_3, 2, 2, 1, 1)
+        self.gridLayout.addWidget(self.BCB, 2, 2, 1, 1)
 
-        self.spinBox_3 = QSpinBox(self.tab)
-        self.spinBox_3.setObjectName(u"spinBox_3")
-        self.spinBox_3.setMinimum(1)
+        self.SNA = QSpinBox(self.tab)
+        self.SNA.setObjectName(u"SNA")
+        self.SNA.setMinimum(1)
 
-        self.gridLayout.addWidget(self.spinBox_3, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.SNA, 0, 1, 1, 1)
 
-        self.spinBox_4 = QSpinBox(self.tab)
-        self.spinBox_4.setObjectName(u"spinBox_4")
-        self.spinBox_4.setMinimum(1)
+        self.SNB = QSpinBox(self.tab)
+        self.SNB.setObjectName(u"SNB")
+        self.SNB.setMinimum(1)
 
-        self.gridLayout.addWidget(self.spinBox_4, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.SNB, 2, 1, 1, 1)
 
 
         self.horizontalLayout_3.addLayout(self.gridLayout)
@@ -134,7 +134,69 @@ class Ui_Widget(object):
 
         self.tabWidget.addTab(self.tab, "")
 
-        self.verticalLayout.addWidget(self.tabWidget)
+        self.verticalLayout_5.addWidget(self.tabWidget)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.label_7 = QLabel(Widget)
+        self.label_7.setObjectName(u"label_7")
+
+        self.verticalLayout.addWidget(self.label_7)
+
+        self.Kout = QGridLayout()
+        self.Kout.setObjectName(u"Kout")
+
+        self.verticalLayout.addLayout(self.Kout)
+
+
+        self.horizontalLayout_4.addLayout(self.verticalLayout)
+
+        self.verticalLayout_4 = QVBoxLayout()
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.label_10 = QLabel(Widget)
+        self.label_10.setObjectName(u"label_10")
+
+        self.verticalLayout_4.addWidget(self.label_10)
+
+        self.Rout = QLabel(Widget)
+        self.Rout.setObjectName(u"Rout")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.Rout.sizePolicy().hasHeightForWidth())
+        self.Rout.setSizePolicy(sizePolicy1)
+
+        self.verticalLayout_4.addWidget(self.Rout)
+
+
+        self.horizontalLayout_4.addLayout(self.verticalLayout_4)
+
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.label_8 = QLabel(Widget)
+        self.label_8.setObjectName(u"label_8")
+
+        self.verticalLayout_2.addWidget(self.label_8)
+
+        self.Uout = QLabel(Widget)
+        self.Uout.setObjectName(u"Uout")
+        sizePolicy1.setHeightForWidth(self.Uout.sizePolicy().hasHeightForWidth())
+        self.Uout.setSizePolicy(sizePolicy1)
+
+        self.verticalLayout_2.addWidget(self.Uout)
+
+
+        self.horizontalLayout_4.addLayout(self.verticalLayout_2)
+
+
+        self.verticalLayout_5.addLayout(self.horizontalLayout_4)
+
+        self.copy = QPushButton(Widget)
+        self.copy.setObjectName(u"copy")
+
+        self.verticalLayout_5.addWidget(self.copy)
 
 
         self.retranslateUi(Widget)
@@ -155,13 +217,19 @@ class Ui_Widget(object):
 #if QT_CONFIG(statustip)
         self.label_4.setStatusTip("")
 #endif // QT_CONFIG(statustip)
-        self.label_4.setText(QCoreApplication.translate("Widget", u"Nodo B:", None))
-        self.checkBox.setText(QCoreApplication.translate("Widget", u"Iguales", None))
+        self.label_4.setText(QCoreApplication.translate("Widget", u"Nodo A:", None))
+        self.eqk.setText(QCoreApplication.translate("Widget", u"Iguales", None))
         self.label_5.setText(QCoreApplication.translate("Widget", u"k:", None))
-        self.label_3.setText(QCoreApplication.translate("Widget", u"Nodo A:", None))
-        self.checkBox_2.setText(QCoreApplication.translate("Widget", u"Fijo", None))
-        self.checkBox_3.setText(QCoreApplication.translate("Widget", u"Fijo", None))
+        self.label_3.setText(QCoreApplication.translate("Widget", u"Nodo B:", None))
+        self.BCA.setText(QCoreApplication.translate("Widget", u"Fijo", None))
+        self.BCB.setText(QCoreApplication.translate("Widget", u"Fijo", None))
         self.label_6.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("Widget", u"Resorte 1", None))
+        self.label_7.setText(QCoreApplication.translate("Widget", u"K", None))
+        self.label_10.setText(QCoreApplication.translate("Widget", u"R", None))
+        self.Rout.setText("")
+        self.label_8.setText(QCoreApplication.translate("Widget", u"U", None))
+        self.Uout.setText("")
+        self.copy.setText(QCoreApplication.translate("Widget", u"Copiar", None))
     # retranslateUi
 
