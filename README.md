@@ -44,26 +44,37 @@ El código [springs](springs.sce) permite obtener la matriz global $k$ así como
 
 
 ## Ejemplo
+
 ![](https://i.imgur.com/XQX9pfM.png)
+
 Tomando como ejemplo la siguiente imagen, tenemos un sistema de:
 - 4 resortes
 - 5 nodos
 - 1 fuerza en el nodo 3
 - 4 módulos elasticos
 - Los nodos 1, 4 y 5 como condiciones de frontera.
+- Resortes:
+
+|No.| Nodo A | Nodo B |
+|:--|:--|:--|
+| 1 | 1 | 2 |
+| 2 | 2 | 3 |
+| 3 | 3 | 4 |
+| 4 | 3 | 5 |
 
 Suponiendo los siguientes valores:
 - Fuerza: 16 N
 - Resortes:
 
-|No.| k |Nodo A | Nodo B |
-|:--|:--|:--|:--|
-| 1 |  2 | 1 | 2 |
-| 2 |  7 | 2 | 3 |
-| 3 | 12 | 3 | 4 |
-| 4 |  1 | 3 | 5 |
+|No.| k |
+|:--|:--|
+| 1 |  2 |
+| 2 |  7 |
+| 3 | 12 |
+| 4 |  1 |
  
 **El sistema arroja los siguientes resultados**:
+
 ```shell
   "K"
    2.  -2.   0.    0.    0.
@@ -84,3 +95,5 @@ Suponiendo los siguientes valores:
   -13.190840
   -1.0992366
 ```
+
+donde $U$ son los desplazamientos y $R$ las reacciones en cada nodo.

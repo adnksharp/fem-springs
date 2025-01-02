@@ -9,15 +9,23 @@ while %t
 	end
 end
 
-P = input('Fuerza: ');
-i = input('nodo: ');
+j = input('Fuerzas aplicadas: ')
+P = zeros(j)
+i = zeros(j)
+for n = 1:j;
+	mprintf('Fuerza %d', n)
+	P(n) = input(': ');
+	i(n) = input('nodo: ');
+end
 
 k = zeros(elements, 1);
 K = zeros(nodes, nodes);
 U = zeros(nodes, 1);
 u = zeros(2, 1);
 R = zeros(nodes, 1);
-R(i) = P;
+for n = 1: j;
+	R(i(n)) = P(n);
+end
 
 mprintf('Constantes elasticas\n');
 keq = convstr(input('¿Valores iguales de k? ', 'string'), 'l');
@@ -50,7 +58,7 @@ for i = 1: elements;
 end
 
 mprintf('Condiciones de frontera')
-u = strsplit(input('Nodos empotrados (separados por comas): ', 'string'), ',')
+u = strsplit(input('Nodos empotrados: ', 'string'), ',')
 bc = evstr(u)
 
 subK = K
