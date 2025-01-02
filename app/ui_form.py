@@ -23,7 +23,7 @@ class Ui_Widget(object):
     def setupUi(self, Widget):
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
-        Widget.resize(517, 491)
+        Widget.resize(628, 691)
         Widget.setStyleSheet(u"")
         self.verticalLayout_5 = QVBoxLayout(Widget)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -136,6 +136,60 @@ class Ui_Widget(object):
 
         self.verticalLayout_5.addWidget(self.tabWidget)
 
+        self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.label_20 = QLabel(Widget)
+        self.label_20.setObjectName(u"label_20")
+
+        self.horizontalLayout_9.addWidget(self.label_20)
+
+        self.forces = QSpinBox(Widget)
+        self.forces.setObjectName(u"forces")
+        self.forces.setMinimum(1)
+        self.forces.setMaximum(255)
+
+        self.horizontalLayout_9.addWidget(self.forces)
+
+
+        self.verticalLayout_5.addLayout(self.horizontalLayout_9)
+
+        self.tabWidget_2 = QTabWidget(Widget)
+        self.tabWidget_2.setObjectName(u"tabWidget_2")
+        self.tab_3 = QWidget()
+        self.tab_3.setObjectName(u"tab_3")
+        self.horizontalLayout_8 = QHBoxLayout(self.tab_3)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.gridLayout_3 = QGridLayout()
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.SNA_3 = QSpinBox(self.tab_3)
+        self.SNA_3.setObjectName(u"SNA_3")
+        self.SNA_3.setMinimum(1)
+
+        self.gridLayout_3.addWidget(self.SNA_3, 0, 1, 1, 1)
+
+        self.label_16 = QLabel(self.tab_3)
+        self.label_16.setObjectName(u"label_16")
+
+        self.gridLayout_3.addWidget(self.label_16, 0, 0, 1, 1)
+
+        self.SNB_3 = QSpinBox(self.tab_3)
+        self.SNB_3.setObjectName(u"SNB_3")
+        self.SNB_3.setMinimum(1)
+
+        self.gridLayout_3.addWidget(self.SNB_3, 1, 1, 1, 1)
+
+        self.label_18 = QLabel(self.tab_3)
+        self.label_18.setObjectName(u"label_18")
+
+        self.gridLayout_3.addWidget(self.label_18, 1, 0, 1, 1)
+
+
+        self.horizontalLayout_8.addLayout(self.gridLayout_3)
+
+        self.tabWidget_2.addTab(self.tab_3, "")
+
+        self.verticalLayout_5.addWidget(self.tabWidget_2)
+
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.verticalLayout = QVBoxLayout()
@@ -202,6 +256,7 @@ class Ui_Widget(object):
         self.retranslateUi(Widget)
 
         self.tabWidget.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Widget)
@@ -225,6 +280,16 @@ class Ui_Widget(object):
         self.BCB.setText(QCoreApplication.translate("Widget", u"Fijo", None))
         self.label_6.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("Widget", u"Resorte 1", None))
+        self.label_20.setText(QCoreApplication.translate("Widget", u"Fuerzas", None))
+#if QT_CONFIG(tooltip)
+        self.label_16.setToolTip("")
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(statustip)
+        self.label_16.setStatusTip("")
+#endif // QT_CONFIG(statustip)
+        self.label_16.setText(QCoreApplication.translate("Widget", u"Fuerza:", None))
+        self.label_18.setText(QCoreApplication.translate("Widget", u"Nodo de aplicaci\u00f3n:", None))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_3), QCoreApplication.translate("Widget", u"Fuerza 1", None))
         self.label_7.setText(QCoreApplication.translate("Widget", u"K", None))
         self.label_10.setText(QCoreApplication.translate("Widget", u"R", None))
         self.Rout.setText("")
