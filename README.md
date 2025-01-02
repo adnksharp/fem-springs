@@ -1,4 +1,9 @@
 # Displacements and reactions in springs elements with FEM
+
+<p align="center">
+  <img src="https://i.imgur.com/Qcqf36i.png" width=150/>
+</p>
+
 Cálculo de deformaciones y reacciones de elementos tipo resorte mediante el método de elemento finito
 
 Este método implica considerar la relación del módulo elastico, las reacciones y las deformaciones de los resortes en base a la siguiente ecuación:
