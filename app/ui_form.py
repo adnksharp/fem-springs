@@ -23,7 +23,7 @@ class Ui_Widget(object):
     def setupUi(self, Widget):
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
-        Widget.resize(628, 691)
+        Widget.resize(517, 423)
         Widget.setStyleSheet(u"")
         self.verticalLayout_5 = QVBoxLayout(Widget)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -107,14 +107,14 @@ class Ui_Widget(object):
         self.SNA = QSpinBox(self.tab)
         self.SNA.setObjectName(u"SNA")
         self.SNA.setMinimum(1)
-        self.SNA.setMaximum(1)
+        self.SNA.setMaximum(2)
 
         self.gridLayout.addWidget(self.SNA, 0, 1, 1, 1)
 
         self.SNB = QSpinBox(self.tab)
         self.SNB.setObjectName(u"SNB")
         self.SNB.setMinimum(1)
-        self.SNB.setMaximum(1)
+        self.SNB.setMaximum(2)
 
         self.gridLayout.addWidget(self.SNB, 2, 1, 1, 1)
 
@@ -194,63 +194,6 @@ class Ui_Widget(object):
 
         self.verticalLayout_5.addWidget(self.tabWidget_2)
 
-        self.horizontalLayout_4 = QHBoxLayout()
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.label_7 = QLabel(Widget)
-        self.label_7.setObjectName(u"label_7")
-
-        self.verticalLayout.addWidget(self.label_7)
-
-        self.Kout = QGridLayout()
-        self.Kout.setObjectName(u"Kout")
-
-        self.verticalLayout.addLayout(self.Kout)
-
-
-        self.horizontalLayout_4.addLayout(self.verticalLayout)
-
-        self.verticalLayout_4 = QVBoxLayout()
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.label_10 = QLabel(Widget)
-        self.label_10.setObjectName(u"label_10")
-
-        self.verticalLayout_4.addWidget(self.label_10)
-
-        self.Rout = QLabel(Widget)
-        self.Rout.setObjectName(u"Rout")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Expanding)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.Rout.sizePolicy().hasHeightForWidth())
-        self.Rout.setSizePolicy(sizePolicy1)
-
-        self.verticalLayout_4.addWidget(self.Rout)
-
-
-        self.horizontalLayout_4.addLayout(self.verticalLayout_4)
-
-        self.verticalLayout_2 = QVBoxLayout()
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.label_8 = QLabel(Widget)
-        self.label_8.setObjectName(u"label_8")
-
-        self.verticalLayout_2.addWidget(self.label_8)
-
-        self.Uout = QLabel(Widget)
-        self.Uout.setObjectName(u"Uout")
-        sizePolicy1.setHeightForWidth(self.Uout.sizePolicy().hasHeightForWidth())
-        self.Uout.setSizePolicy(sizePolicy1)
-
-        self.verticalLayout_2.addWidget(self.Uout)
-
-
-        self.horizontalLayout_4.addLayout(self.verticalLayout_2)
-
-
-        self.verticalLayout_5.addLayout(self.horizontalLayout_4)
-
         self.copy = QPushButton(Widget)
         self.copy.setObjectName(u"copy")
 
@@ -295,11 +238,6 @@ class Ui_Widget(object):
         self.label_16.setText(QCoreApplication.translate("Widget", u"Fuerza:", None))
         self.label_18.setText(QCoreApplication.translate("Widget", u"Nodo de aplicaci\u00f3n:", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_3), QCoreApplication.translate("Widget", u"Fuerza 1", None))
-        self.label_7.setText(QCoreApplication.translate("Widget", u"K", None))
-        self.label_10.setText(QCoreApplication.translate("Widget", u"R", None))
-        self.Rout.setText("")
-        self.label_8.setText(QCoreApplication.translate("Widget", u"U", None))
-        self.Uout.setText("")
         self.copy.setText(QCoreApplication.translate("Widget", u"Copiar", None))
     # retranslateUi
 
