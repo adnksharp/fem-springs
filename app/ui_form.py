@@ -278,6 +278,7 @@ class Ui_Widget(object):
 #endif // QT_CONFIG(statustip)
         self.label_4.setText(QCoreApplication.translate("Widget", u"Nodo A:", None))
         self.eqk.setText(QCoreApplication.translate("Widget", u"Iguales", None))
+        self.Sk.setPlaceholderText(QCoreApplication.translate("Widget", u"M\u00f3dulo elastico", None))
         self.label_5.setText(QCoreApplication.translate("Widget", u"k:", None))
         self.label_3.setText(QCoreApplication.translate("Widget", u"Nodo B:", None))
         self.BCA.setText(QCoreApplication.translate("Widget", u"Fijo", None))
