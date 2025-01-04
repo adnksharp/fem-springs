@@ -59,7 +59,11 @@ class Widget(QWidget):
                 k.append(int(i.text()))
             except:
                 k.append(0)
-        fem.calculate(elements, n, nodes, forces, findex, k)
+        bc = []
+        for i in range(len(self.bc)):
+            if self.bc[i]:
+                bc.append(i)
+        fem.calculate(elements, n, nodes, forces, findex, k, bc)
 
     def settingNodes(self, *args):
         if not args[0]:
