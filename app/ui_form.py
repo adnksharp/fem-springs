@@ -194,10 +194,29 @@ class Ui_Widget(object):
 
         self.verticalLayout_5.addWidget(self.tabWidget_2)
 
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.copy = QPushButton(Widget)
         self.copy.setObjectName(u"copy")
+        self.copy.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.EditCopy))
+        self.copy.setIcon(icon)
 
-        self.verticalLayout_5.addWidget(self.copy)
+        self.horizontalLayout_4.addWidget(self.copy)
+
+        self.pushButton = QPushButton(Widget)
+        self.pushButton.setObjectName(u"pushButton")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy1)
+        self.pushButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+
+        self.horizontalLayout_4.addWidget(self.pushButton)
+
+
+        self.verticalLayout_5.addLayout(self.horizontalLayout_4)
 
 
         self.retranslateUi(Widget)
@@ -238,6 +257,7 @@ class Ui_Widget(object):
         self.label_16.setText(QCoreApplication.translate("Widget", u"Fuerza:", None))
         self.label_18.setText(QCoreApplication.translate("Widget", u"Nodo de aplicaci\u00f3n:", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_3), QCoreApplication.translate("Widget", u"Fuerza 1", None))
-        self.copy.setText(QCoreApplication.translate("Widget", u"Copiar", None))
+        self.copy.setText("")
+        self.pushButton.setText(QCoreApplication.translate("Widget", u"Calcular", None))
     # retranslateUi
 

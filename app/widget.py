@@ -1,11 +1,10 @@
 # This Python file uses the following encoding: utf-8
 import sys
+from notifypy import Notify as noty
+import pyperclip as xclip
 
-from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout,
-    QLabel, QLineEdit, QPushButton, QSizePolicy,
-    QSpinBox, QTabWidget, QVBoxLayout, QWidget)
-from PySide6.QtCore import QSize, Qt
-from PySide6.QtGui import QPixmap
+from PySide6.QtWidgets import QApplication, QWidget
+from PySide6.QtCore import Qt
 
 # Important:
 # You need to run the following command to generate the ui_form.py file
@@ -19,6 +18,7 @@ class Widget(QWidget):
         super().__init__(parent)
         self.ui = Ui_Widget()
         self.ui.setupUi(self)
+        self.noty = noty()
 
         self.sna = [self.ui.SNA]
         self.snb = [self.ui.SNB]
@@ -30,6 +30,7 @@ class Widget(QWidget):
         self.forces = [self.ui.force]
         self.nff = [self.ui.FN]
 
+        self.ui.copy.clicked.connect(self.copyConf)
         self.ui.springs.valueChanged.connect(self.newSprings)
         self.ui.nodes.valueChanged.connect(self.newNodes)
         self.ui.forces.valueChanged.connect(self.newForces)
@@ -99,13 +100,39 @@ class Widget(QWidget):
                 i.setMaximum(opts)
             for i in self.snb:
                 i.setMaximum(opts)
-            #self.ui.FN.setMaximum(opts)
             for i in self.nff:
                 i.setMaximum(opts)
         while len(self.bc) < opts:
             self.bc.append(False)
         while len(self.bc) > opts:
             self.bc = self.bc[:-1]
+            
+    def copyConf(self):
+        self.noty.title = 'FEM Springs'
+        self.noty.message = 'Variables copiadas al portapapeles'
+        
+        clone = '"springs":\n{'
+        clone += f'\t"count": {self.ui.springs.value()},\n'
+        for i in range(self.ui.springs.value()):
+            clone += "\t{\n"
+            clone += f'\t\t"nodes": [{self.sna[i].value()}, {self.snb[i].value()}],\n\t\t"k": {int(self.kedit[i].text())}\n'
+            if i < self.ui.springs.value() - 1:
+                clone += "\t},\n"
+            else:
+                clone += "\t}\n"
+        clone += '}\n"forces":\n{\n'
+        
+        clone += f'\t"count": {self.ui.forces.value()},\n'
+        for i in range(self.ui.forces.value()):
+            clone += "\t{\n"
+            clone += f'\t\t"node": {self.nff[i].value()},\n\t\t"k": {self.forces[i].text()}\n'
+            if i < self.ui.forces.value() - 1:
+                clone += "\t},\n"
+            else:
+                clone += "\t}\n}"
+
+        xclip.copy(clone)
+        self.noty.send()              
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
