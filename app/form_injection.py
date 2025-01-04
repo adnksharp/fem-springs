@@ -79,7 +79,7 @@ class newItems(QWidget):
         newFN = QSpinBox(new)
         
         newforce.setMinimum(0)
-        newFN.setMinimum(1)
+        newFN.setMinimum(-1000000000)
         newforce.setMaximum(1000000000)
         newFN.setMaximum(self.ui.nodes.value())
         

@@ -23,7 +23,7 @@ class Ui_Widget(object):
     def setupUi(self, Widget):
         if not Widget.objectName():
             Widget.setObjectName(u"Widget")
-        Widget.resize(517, 423)
+        Widget.resize(517, 425)
         Widget.setStyleSheet(u"")
         self.verticalLayout_5 = QVBoxLayout(Widget)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
@@ -165,7 +165,7 @@ class Ui_Widget(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.force = QSpinBox(self.tab_3)
         self.force.setObjectName(u"force")
-        self.force.setMinimum(0)
+        self.force.setMinimum(-1000000000)
         self.force.setMaximum(1000000000)
 
         self.gridLayout_3.addWidget(self.force, 0, 1, 1, 1)
