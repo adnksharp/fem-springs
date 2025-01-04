@@ -30,6 +30,7 @@ class Widget(QWidget):
 
         self.ui.springs.valueChanged.connect(self.newSprings)
         self.ui.nodes.valueChanged.connect(self.newNodes)
+        self.ui.forces.valueChanged.connect(self.newForces)
         self.ui.SNA.valueChanged.connect(lambda x:self.settingNodes(False, 1))
         self.ui.SNB.valueChanged.connect(lambda x:self.settingNodes(True, 1))
         self.ui.BCA.stateChanged.connect(lambda x:self.settingBC(False, 1))
@@ -69,15 +70,23 @@ class Widget(QWidget):
         self.bcuib = self.bcuib[:-1]
         self.kui = self.kui[:-1]
         self.kedit = self.kedit[:-1]
+        
+    def deleteForces(self):
+        self.ui.tabWidget_2.removeTab(self.ui.tabWidget_2.count() - 1)
 
     def newSprings(self):
-        opts = self.ui.springs.value()
         while self.ui.springs.value() > self.ui.tabWidget.count():
             now = self.ui.tabWidget.count()
-            #self.addSprings(now + 1)
             newItems.addSprings(self, now + 1)
         while self.ui.springs.value() < self.ui.tabWidget.count():
             self.deleteSprings()
+            
+    def newForces(self):
+        while self.ui.forces.value() > self.ui.tabWidget_2.count():
+            now = self.ui.tabWidget_2.count()
+            newItems.addForces(self, now +  1)
+        while self.ui.forces.value() < self.ui.tabWidget_2.count():
+            self.deleteForces()
  
     def newNodes(self):
         opts = self.ui.nodes.value()

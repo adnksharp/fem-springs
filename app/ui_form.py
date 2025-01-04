@@ -178,7 +178,7 @@ class Ui_Widget(object):
         self.FN = QSpinBox(self.tab_3)
         self.FN.setObjectName(u"FN")
         self.FN.setMinimum(1)
-        self.FN.setMaximum(1)
+        self.FN.setMaximum(2)
 
         self.gridLayout_3.addWidget(self.FN, 1, 1, 1, 1)
 

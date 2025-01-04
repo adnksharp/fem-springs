@@ -70,3 +70,24 @@ class newItems(QWidget):
         self.bcuib.append(newBCB)
         self.kui.append(neweqk)
         self.kedit.append(newkedit)
+        
+    def addForces(self, n):
+        new = QWidget()
+        grid = QGridLayout()
+        newforce = QSpinBox(new)
+        newFN = QSpinBox(new)
+        newLayout = QHBoxLayout(new)
+        
+        newforce.setMinimum(1)
+        newFN.setMinimum(1)
+        newforce.setMaximum(self.ui.nodes.value())
+        newFN.setMaximum(self.ui.nodes.value())
+        
+        grid.addWidget(QLabel('Fuerza:'), 0, 0, 1, 1)
+        grid.addWidget(QLabel('Nodo de aplicación:'), 1, 0, 1, 1)
+        grid.addWidget(newforce, 0, 1, 1, 1)
+        grid.addWidget(newFN, 1, 1, 1, 1)
+        
+        newLayout.addLayout(grid)
+        
+        self.ui.tabWidget_2.addTab(new, f"Resorte {n}")
