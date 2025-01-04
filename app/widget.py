@@ -27,6 +27,8 @@ class Widget(QWidget):
         self.kui = [self.ui.eqk]
         self.kedit = [self.ui.Sk]
         self.bc = [False, False]
+        self.forces = [self.ui.force]
+        self.nff = [self.ui.FN]
 
         self.ui.springs.valueChanged.connect(self.newSprings)
         self.ui.nodes.valueChanged.connect(self.newNodes)
@@ -73,6 +75,8 @@ class Widget(QWidget):
         
     def deleteForces(self):
         self.ui.tabWidget_2.removeTab(self.ui.tabWidget_2.count() - 1)
+        self.forces = self.forces[:-1]
+        self.nff = self.nff[:-1]
 
     def newSprings(self):
         while self.ui.springs.value() > self.ui.tabWidget.count():
@@ -95,7 +99,9 @@ class Widget(QWidget):
                 i.setMaximum(opts)
             for i in self.snb:
                 i.setMaximum(opts)
-            self.ui.FN.setMaximum(opts)
+            #self.ui.FN.setMaximum(opts)
+            for i in self.nff:
+                i.setMaximum(opts)
         while len(self.bc) < opts:
             self.bc.append(False)
         while len(self.bc) > opts:

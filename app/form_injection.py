@@ -74,13 +74,13 @@ class newItems(QWidget):
     def addForces(self, n):
         new = QWidget()
         grid = QGridLayout()
+        newLayout = QHBoxLayout(new)
         newforce = QSpinBox(new)
         newFN = QSpinBox(new)
-        newLayout = QHBoxLayout(new)
         
-        newforce.setMinimum(1)
+        newforce.setMinimum(0)
         newFN.setMinimum(1)
-        newforce.setMaximum(self.ui.nodes.value())
+        newforce.setMaximum(1000000000)
         newFN.setMaximum(self.ui.nodes.value())
         
         grid.addWidget(QLabel('Fuerza:'), 0, 0, 1, 1)
@@ -90,4 +90,7 @@ class newItems(QWidget):
         
         newLayout.addLayout(grid)
         
-        self.ui.tabWidget_2.addTab(new, f"Resorte {n}")
+        self.ui.tabWidget_2.addTab(new, f"Fuerza {n}")
+        
+        self.forces.append(newforce)
+        self.nff.append(newFN)
