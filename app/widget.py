@@ -12,6 +12,7 @@ from PySide6.QtCore import Qt
 #     pyside2-uic form.ui -o ui_form.py
 from ui_form import Ui_Widget
 from form_injection import newItems
+import fem
 
 class Widget(QWidget):
     def __init__(self, parent=None):
@@ -30,6 +31,7 @@ class Widget(QWidget):
         self.forces = [self.ui.force]
         self.nff = [self.ui.FN]
 
+        self.ui.run.clicked.connect(self.toCalc)
         self.ui.copy.clicked.connect(self.copyConf)
         self.ui.springs.valueChanged.connect(self.newSprings)
         self.ui.nodes.valueChanged.connect(self.newNodes)
@@ -40,6 +42,24 @@ class Widget(QWidget):
         self.ui.BCB.stateChanged.connect(lambda x:self.settingBC(True, 1))
         self.ui.eqk.stateChanged.connect(lambda x:self.settingK(1))
  
+    def toCalc(self):
+        elements = self.ui.springs.value()
+        n = self.ui.nodes.value()
+        nodes = []
+        for i in range(len(self.sna)):
+            nodes.append([
+              self.sna[i].value() - 1,
+              self.snb[i].value() - 1
+            ])
+        forces = [x.value() for x in self.forces]
+        findex = [x.value() for x in self.nff]
+        k = []
+        for i in self.kedit:
+            try:
+                k.append(int(i.text()))
+            except:
+                k.append(0)
+        fem.calculate(elements, n, nodes, forces, findex, k)
 
     def settingNodes(self, *args):
         if not args[0]:
