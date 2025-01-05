@@ -11,6 +11,9 @@ from PySide6.QtCore import Qt
 #     pyside6-uic form.ui -o ui_form.py, or
 #     pyside2-uic form.ui -o ui_form.py
 from ui_form import Ui_Widget
+from ui_kform import Ui_Widget as K_Widget
+from ui_ruform import Ui_Widget as RU_Widget
+
 from form_injection import newItems
 from fem import fem
 
@@ -20,6 +23,9 @@ class Widget(QWidget):
         self.ui = Ui_Widget()
         self.ui.setupUi(self)
         self.noty = noty()
+        
+        self.kwidget = KWidget()
+        self.ruwidget = RUWidget()
 
         self.sna = [self.ui.SNA]
         self.snb = [self.ui.SNB]
@@ -65,9 +71,13 @@ class Widget(QWidget):
                 bc.append(i)
                 
         math = fem()
-        math.calculate(n, nodes, forces, findex, k, bc)
-        
-        out = [math.getK(), math.getR(), math.getU()]
+        try:
+            math.calculate(n, nodes, forces, findex, k, bc)
+            self.kwidget.print(math.getK())
+            self.ruwidget.print(math.getR(), math.getU())
+        except:
+            self.noty.message = 'Sistema no valido'
+            self.noty.send()
 
     def settingNodes(self, *args):
         if not args[0]:
@@ -160,7 +170,35 @@ class Widget(QWidget):
                 clone += "\t}\n}"
 
         xclip.copy(clone)
-        self.noty.send()              
+        self.noty.send() 
+        
+    def closeEvent(self, event):
+        self.kwidget.close()
+        self.ruwidget.close()
+        return super().closeEvent(event)    
+        
+class KWidget(QWidget):
+    def __init__(self, parent = None):
+        super().__init__(parent)
+        self.ui = K_Widget()
+        self.ui.setupUi(self)
+        
+    def print(self, txt):
+        self.ui.label.setText(txt)
+        self.show()
+        self.adjustSize()
+        
+class RUWidget(QWidget):
+    def __init__(self, parent = None):
+        super().__init__(parent)
+        self.ui = RU_Widget()
+        self.ui.setupUi(self)
+        
+    def print(self, *txt):
+        self.ui.label.setText(txt[0])
+        self.ui.label_2.setText(txt[1])
+        self.show()
+        self.adjustSize()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
