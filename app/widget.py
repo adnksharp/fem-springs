@@ -12,7 +12,7 @@ from PySide6.QtCore import Qt
 #     pyside2-uic form.ui -o ui_form.py
 from ui_form import Ui_Widget
 from form_injection import newItems
-import fem
+from fem import fem
 
 class Widget(QWidget):
     def __init__(self, parent=None):
@@ -63,7 +63,11 @@ class Widget(QWidget):
         for i in range(len(self.bc)):
             if self.bc[i]:
                 bc.append(i)
-        fem.calculate(elements, n, nodes, forces, findex, k, bc)
+                
+        math = fem()
+        math.calculate(n, nodes, forces, findex, k, bc)
+        
+        out = [math.getK(), math.getR(), math.getU()]
 
     def settingNodes(self, *args):
         if not args[0]:
