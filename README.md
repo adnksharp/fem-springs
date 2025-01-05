@@ -32,7 +32,7 @@ con el fin de construir una matriz global `[K]` que almacene todos los valores d
 [K] [U] = [R]
 ```
 
-## Uso 
+## Script de Scilab
 
 El código [springs](springs.sce) permite obtener la matriz global $k$ así como las reacciones y las deformaciónes para cada elemento. Al ejecutar el script dentro de scilab es necesario llenar los datos que este pide:
 
@@ -49,6 +49,8 @@ El código [springs](springs.sce) permite obtener la matriz global $k$ así como
 
 
 
+<details>
+<summary> Ejemplo </summary>
 ## Ejemplo
 
 ![](https://i.imgur.com/XQX9pfM.png)
@@ -103,3 +105,32 @@ Suponiendo los siguientes valores:
 ```
 
 donde $U$ son los desplazamientos y $R$ las reacciones en cada nodo.
+</details>
+
+# Interfaz de Python
+
+![](https://i.imgur.com/M7SlV9B.png)
+
+La interfaz grafica permite obtener los mismos datos usando numpy
+
+## Librerías necesarias
+
+- sys, json
+- notify-py
+- pyperclip
+- PySide6
+- numpy
+
+```bash
+pip install -r requirements.txt
+```
+
+## Características
+- Adaptable a la cantidad de resortes y fuerzas del sistema a analizar.
+- Muestra los resultados en ventanas separadas.
+- Permite copiar los datos al portapapeles.
+
+#### En proceso
+
+> [!TIP]
+> - Agregar unidades
