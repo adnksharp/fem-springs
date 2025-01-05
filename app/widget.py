@@ -23,6 +23,7 @@ class Widget(QWidget):
         self.ui = Ui_Widget()
         self.ui.setupUi(self)
         self.noty = noty()
+        self.noty.title = 'FEM Springs'
         
         self.kwidget = KWidget()
         self.ruwidget = RUWidget()
@@ -146,7 +147,6 @@ class Widget(QWidget):
             self.bc = self.bc[:-1]
             
     def copyConf(self):
-        self.noty.title = 'FEM Springs'
         self.noty.message = 'Variables copiadas al portapapeles'
         
         clone = '"springs":\n{'
@@ -182,23 +182,42 @@ class KWidget(QWidget):
         super().__init__(parent)
         self.ui = K_Widget()
         self.ui.setupUi(self)
+        self.noty = noty()
+        self.noty.title = 'FEM Springs'
+        
+        self.ui.pushButton.clicked.connect(self.copy)
         
     def print(self, txt):
         self.ui.label.setText(txt)
         self.show()
         self.adjustSize()
         
+    def copy(self):
+        xclip.copy(self.ui.label.text())
+        self.noty.message = 'Matriz K copiada al portapapeles'
+        self.noty.send()
+        
 class RUWidget(QWidget):
     def __init__(self, parent = None):
         super().__init__(parent)
         self.ui = RU_Widget()
         self.ui.setupUi(self)
+        self.noty = noty()
+        self.noty.title = 'FEM Springs'
+        
+        self.ui.pushButton.clicked.connect(lambda x: self.copy(0))
+        self.ui.pushButton_2.clicked.connect(lambda x: self.copy(1))
         
     def print(self, *txt):
         self.ui.label.setText(txt[0])
         self.ui.label_2.setText(txt[1])
         self.show()
         self.adjustSize()
+
+    def copy(self, opt):
+        xclip.copy(self.ui.label.text() if opt == 0 else self.ui.label.text())
+        self.noty.message = f'Matriz {"K" if opt == 0 else "U"} copiada al portapapeles'
+        self.noty.send()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
