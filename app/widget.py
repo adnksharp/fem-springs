@@ -25,8 +25,8 @@ class Widget(QWidget):
         self.noty = noty()
         self.noty.title = 'FEM Springs'
         
-        self.kwidget = KWidget()
-        self.ruwidget = RUWidget()
+        self.kwidget = KWidget(self.noty)
+        self.ruwidget = RUWidget(self.noty)
 
         self.sna = [self.ui.SNA]
         self.snb = [self.ui.SNB]
@@ -78,7 +78,10 @@ class Widget(QWidget):
             self.ruwidget.print(math.getR(), math.getU())
         except:
             self.noty.message = 'Sistema no valido'
-            self.noty.send()
+            try:
+                self.noty.send()
+            except:
+                pass
 
     def settingNodes(self, *args):
         if not args[0]:
@@ -170,7 +173,10 @@ class Widget(QWidget):
                 clone += "\t}\n}"
 
         xclip.copy(clone)
-        self.noty.send() 
+        try:
+            self.noty.send()
+        except:
+            pass 
         
     def closeEvent(self, event):
         self.kwidget.close()
@@ -178,11 +184,11 @@ class Widget(QWidget):
         return super().closeEvent(event)    
         
 class KWidget(QWidget):
-    def __init__(self, parent = None):
-        super().__init__(parent)
+    def __init__(self, parent):
+        super().__init__()
         self.ui = K_Widget()
         self.ui.setupUi(self)
-        self.noty = noty()
+        self.noty = parent
         self.noty.title = 'FEM Springs'
         
         self.ui.pushButton.clicked.connect(self.copy)
@@ -195,14 +201,17 @@ class KWidget(QWidget):
     def copy(self):
         xclip.copy(self.ui.label.text())
         self.noty.message = 'Matriz K copiada al portapapeles'
-        self.noty.send()
+        try:
+            self.noty.send()
+        except:
+            pass
         
 class RUWidget(QWidget):
-    def __init__(self, parent = None):
-        super().__init__(parent)
+    def __init__(self, parent):
+        super().__init__()
         self.ui = RU_Widget()
         self.ui.setupUi(self)
-        self.noty = noty()
+        self.noty = parent
         self.noty.title = 'FEM Springs'
         
         self.ui.pushButton.clicked.connect(lambda x: self.copy(0))
@@ -215,9 +224,12 @@ class RUWidget(QWidget):
         self.adjustSize()
 
     def copy(self, opt):
-        xclip.copy(self.ui.label.text() if opt == 0 else self.ui.label.text())
-        self.noty.message = f'Matriz {"K" if opt == 0 else "U"} copiada al portapapeles'
-        self.noty.send()
+        xclip.copy(self.ui.label.text() if opt == 0 else self.ui.label_2.text())
+        self.noty.message = f'Matriz {"R" if opt == 0 else "U"} copiada al portapapeles'
+        try:
+            self.noty.send()
+        except:
+            pass
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

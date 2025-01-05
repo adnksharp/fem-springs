@@ -109,7 +109,7 @@ donde $U$ son los desplazamientos y $R$ las reacciones en cada nodo.
 
 # Interfaz de Python
 
-![](https://i.imgur.com/M7SlV9B.png)
+![](https://i.imgur.com/iHRarJf.png)
 
 La interfaz grafica permite obtener los mismos datos usando numpy
 
